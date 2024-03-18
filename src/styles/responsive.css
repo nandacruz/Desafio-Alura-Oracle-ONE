@@ -1,0 +1,19 @@
+@media (max-width: 768px){
+   .principal{
+    flex-wrap: wrap;    
+   }
+
+   .principal__historico{
+    width: 100%;
+    align-items: center;
+   }
+
+   .principal__historico__imagem{
+     display: none;
+   }
+
+}
+
+@media (max-width: 375px){
+
+}
