@@ -1,6 +1,3 @@
-//alert('Olá inimigos!');
-
-
 //Pegando o texto da text área
 function criptografarTexto(){
     
@@ -10,10 +7,7 @@ function criptografarTexto(){
 
     //Vamos deixar o texto em minusculo somente
     texto = texto.toLowerCase();
-
-    //Removendo acentos
-    texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
+   
     //chamando função para remover acentos
     texto = removerAcentos(texto);
 
@@ -28,58 +22,42 @@ function criptografarTexto(){
         letrasArray[i] = letrasArray[i] === 'i' ? "imes" : letrasArray[i];
         letrasArray[i] = letrasArray[i] === 'o' ? "ober" : letrasArray[i];
         letrasArray[i] = letrasArray[i] === 'u' ? "ufat" : letrasArray[i];
-        //console.log(letrasArray[i]);
     }
-
-    copiarTexto(letrasArray);
 
     //Processo inverso do .split 
     letrasArray = letrasArray.join(''); 
 
-    console.log(letrasArray);    
+    copiarTexto(letrasArray);
+
+    //console.log(letrasArray);    
 }
 
 
 function descriptografarTexto(){
-     //Aqui capturamos o texto digitado pelo usuário
-     let textarea = document.getElementById('texto');
-     let texto = textarea.value;
+    //Aqui capturamos o texto digitado pelo usuário
+    let textarea = document.getElementById('texto');
+    let texto = textarea.value;
      
-     //Vamos deixar o texto em minusculo somente
-     texto = texto.toLowerCase();
+    //Vamos deixar o texto em minusculo somente
+    texto = texto.toLowerCase();
  
-     //Removendo acentos
-     texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
- 
-     //chamando função para remover acentos
-     texto = removerAcentos(texto);
- 
-     //Aqui estou pegando cada letra do texto e separando num array  
-     let letrasArray = texto.split(''); 
-     
-     for (let i = 0; i < letrasArray.length; i++) {
- 
-         //Laços de condição
-         letrasArray[i] = letrasArray[i] === 'ai' ? "a" : letrasArray[i];
-         letrasArray[i] = letrasArray[i] === 'enter' ? "e" : letrasArray[i];
-         letrasArray[i] = letrasArray[i] === 'imes' ? "i" : letrasArray[i];
-         letrasArray[i] = letrasArray[i] === 'ober' ? "o" : letrasArray[i];
-         letrasArray[i] = letrasArray[i] === 'ufat' ? "u" : letrasArray[i];
-         
-     }
-
-    //Processo inverso do .split 
-    //letrasArray = letrasArray.join('');
-    copiarTexto(letrasArray); 
-
-    console.log(letrasArray);
-        
+    //chamando função para remover acentos
+    texto = removerAcentos(texto);
+    
+    texto = texto.replace(/ai/g, 'a');
+    texto = texto.replace(/enter/g, 'e');
+    texto = texto.replace(/imes/g, 'i');
+    texto = texto.replace(/ober/g, 'o');
+    texto = texto.replace(/ufat/g, 'u');
+    
+    copiarTexto(texto);
+    console.log(texto);
 }
 
-
+//Função para copiar o texto
 function copiarTexto(textoCopiado){
     const inputElement = document.getElementById("meuInput");
-    inputElement.value = textoCopiado.join('');
+    inputElement.value = textoCopiado;
 }
 
 //Função para remover acentos
@@ -87,3 +65,11 @@ function removerAcentos(textoComAcento){
     return textoComAcento.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
+function verificarTextArea() {
+    var texto = document.getElementById("texto").value;
+    if (texto.trim() !== "") {
+        alert("A textarea possui texto digitado!");
+    } else {
+        alert("A textarea está vazia.");
+    }
+}
