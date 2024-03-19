@@ -35,7 +35,7 @@
 /*Eu queria que alguns elementos ocupassem 100% do espaço, mas antes tive que configurar nos elementos pai*/
 html{
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
 }
 
 /*Corpo do texto*/

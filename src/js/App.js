@@ -1,3 +1,5 @@
+document.getElementById("meuInput").addEventListener("input", verificarTextArea);
+
 //Pegando o texto da text área
 function criptografarTexto(){
     
@@ -51,7 +53,7 @@ function descriptografarTexto(){
     texto = texto.replace(/ufat/g, 'u');
     
     copiarTexto(texto);
-    console.log(texto);
+    //console.log(texto);
 }
 
 //Função para copiar o texto
@@ -66,10 +68,6 @@ function removerAcentos(textoComAcento){
 }
 
 function verificarTextArea() {
-    var texto = document.getElementById("texto").value;
-    if (texto.trim() !== "") {
-        alert("A textarea possui texto digitado!");
-    } else {
-        alert("A textarea está vazia.");
-    }
+    console.log('aaa');
 }
+
