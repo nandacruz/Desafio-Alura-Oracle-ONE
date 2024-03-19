@@ -17,8 +17,6 @@ function criptografarTexto(){
     //chamando função para remover acentos
     texto = removerAcentos(texto);
 
-    copiarTexto(texto);
-
     //Aqui estou pegando cada letra do texto e separando num array  
     let letrasArray = texto.split(''); 
     
@@ -30,11 +28,15 @@ function criptografarTexto(){
         letrasArray[i] = letrasArray[i] === 'i' ? "imes" : letrasArray[i];
         letrasArray[i] = letrasArray[i] === 'o' ? "ober" : letrasArray[i];
         letrasArray[i] = letrasArray[i] === 'u' ? "ufat" : letrasArray[i];
-        console.log(letrasArray[i]);
+        //console.log(letrasArray[i]);
     }
 
-    //console.log(texto);
-    
+    copiarTexto(letrasArray);
+
+    //Processo inverso do .split 
+    letrasArray = letrasArray.join(''); 
+
+    console.log(letrasArray);    
 }
 
 
@@ -42,7 +44,7 @@ function descriptografarTexto(){
      //Aqui capturamos o texto digitado pelo usuário
      let textarea = document.getElementById('texto');
      let texto = textarea.value;
- 
+     
      //Vamos deixar o texto em minusculo somente
      texto = texto.toLowerCase();
  
@@ -63,18 +65,21 @@ function descriptografarTexto(){
          letrasArray[i] = letrasArray[i] === 'imes' ? "i" : letrasArray[i];
          letrasArray[i] = letrasArray[i] === 'ober' ? "o" : letrasArray[i];
          letrasArray[i] = letrasArray[i] === 'ufat' ? "u" : letrasArray[i];
-         console.log(letrasArray[i]);
+         
      }
- 
-     //console.log(texto);   
+
+    //Processo inverso do .split 
+    //letrasArray = letrasArray.join('');
+    copiarTexto(letrasArray); 
+
+    console.log(letrasArray);
+        
 }
 
 
 function copiarTexto(textoCopiado){
     const inputElement = document.getElementById("meuInput");
-    inputElement.value = textoCopiado;
-    console.log(inputElement);
-    
+    inputElement.value = textoCopiado.join('');
 }
 
 //Função para remover acentos
