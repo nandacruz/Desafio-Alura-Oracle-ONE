@@ -1,5 +1,3 @@
-document.getElementById("meuInput").addEventListener("input", verificarTextArea);
-
 //Pegando o texto da text área
 function criptografarTexto(){
     
@@ -30,8 +28,8 @@ function criptografarTexto(){
     letrasArray = letrasArray.join(''); 
 
     copiarTexto(letrasArray);
-
-    //console.log(letrasArray);    
+    verificarTextArea(letrasArray);
+      
 }
 
 
@@ -67,7 +65,59 @@ function removerAcentos(textoComAcento){
     return textoComAcento.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
-function verificarTextArea() {
-    console.log('aaa');
+function verificarTextArea(letrasArray) {
+    let texto = letrasArray;
+    if(texto.length > 0) {
+        esconder();
+    } else {
+        mostrar();
+    }
+    console.log(letrasArray);
 }
 
+function esconder() {
+    //Esconde a Imagem e mostra o texto digitado
+    let imagem = document.getElementById("imagemHistorico");
+    imagem.style.display = "none";
+
+    let texto = document.getElementById("meuInput");
+    texto.style.display = "block";
+
+    //Esconde o titulo e o paragrafo
+    let section = document.querySelector('section.principal__historico');
+    let paragrafo = section.querySelector('p');
+    paragrafo.style.display = "none";
+
+    let titulo = section.querySelector('h2');
+    titulo.style.display = "none";
+
+    //Mostra o botão Copiar
+    let botaoCopiar = section.querySelector('button');
+    botaoCopiar.style.display = "block";
+}
+
+function mostrar() {
+    //Esconde a Texto e mostra a imagem
+    let imagem = document.getElementById("imagemHistorico");
+    imagem.style.display = "block";
+
+    let texto = document.getElementById("meuInput");
+    texto.style.display = "none";
+
+    //Mostra o titulo e o paragrafo
+    let section = document.querySelector('section.principal__historico');
+    let paragrafo = section.querySelector('p');
+    paragrafo.style.display = "block";
+
+    let titulo = section.querySelector('h2');
+    titulo.style.display = "block";
+
+    //Esconde o botão Copiar
+    let botaoCopiar = section.querySelector('button');
+    botaoCopiar.style.display = "none";
+}
+
+function botaoCopiar() {   
+    let textoHistorico = document.getElementById("meuInput").value;
+    document.getElementById('texto').value = textoHistorico;
+}

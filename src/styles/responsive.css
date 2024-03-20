@@ -6,6 +6,7 @@
    .principal__historico{
     width: 100%;
     align-items: center;
+    height: auto; 
    }
 
    .principal__historico__imagem{

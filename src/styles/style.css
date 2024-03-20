@@ -30,6 +30,8 @@
     --gray-300: #868E96;
     --gray-400: #495057;
     --gray-500: #343A40;
+
+    --button-color: #D8DFE8;
 }
 
 /*Eu queria que alguns elementos ocupassem 100% do espaço, mas antes tive que configurar nos elementos pai*/
@@ -125,12 +127,26 @@ form{
 
 .principal__conteudo__buttons__button{
     width: 100%;
-    color: var(--gray-100);
-    background-color: var(--dark-blue-500);
-    padding: 24px;
+    padding: 24px;    
     border-radius: 20px;
     text-align: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adicionando sombra sutil */
 }
+
+.principal__conteudo__buttons > button:first-child{
+    color: var(--gray-100);
+    background-color: var(--dark-blue-500);
+    border: none;
+}
+
+.principal__conteudo__buttons > button:nth-child(2){
+    color: var(--dark-blue-300);
+    background-color: var(--button-color);
+    border: 0.3px solid;
+    border-color: var(--dark-blue-300);
+}
+
+
 
 /*Classe dedicada a estilização do histórico de texto*/
 .principal__historico{
@@ -139,7 +155,7 @@ form{
     align-items: flex-end;
     background-color: #FFF;
     width: auto; 
-    height: 100%;    
+    height: 500px;    
     padding: 32px;
     gap: 32px;    
     border-radius: 20px;
@@ -159,6 +175,11 @@ form{
 .principal__historico_titulo, .principal__historico p{
     text-align: center;
 }
+
+#meuInput,#botaoCopiar{
+    display: none;
+}
+
 
 /*Rodapé*/
 footer{
