@@ -1,6 +1,7 @@
 @media (max-width: 768px){
    .principal{
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
+       
    }
 
    .principal__historico{

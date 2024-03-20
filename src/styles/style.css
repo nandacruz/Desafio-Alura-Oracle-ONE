@@ -37,7 +37,7 @@
 /*Eu queria que alguns elementos ocupassem 100% do espaço, mas antes tive que configurar nos elementos pai*/
 html{
     width: 100%;
-    /*height: 100%;*/
+    height: 100%;
 }
 
 /*Corpo do texto*/
@@ -66,28 +66,20 @@ h1{
 /*Essa classe se relaciona com a tag main do projeto*/
 .principal{
    width: 100%;
-   height: 100%;  
+   position: relative;
+   min-height: 100vh;
    display: flex;   
-   flex-direction: row;
+   align-items: flex-start; 
    padding: 2.93%;
    gap: 20px;
-
-   align-items: flex-start; 
-   justify-content: space-between;
 }
 
 /*Essa classe se relaciona com o conteúdo*/
 .principal__conteudo{
     width: 100%;
     height: 100%;
-    
-         
-}
-
-form{
-    width: 100%;
-    height: 100%;
-}
+    flex-direction: row;
+}    
 
 /*Essa classe se relaciona com o conteúdo da text_box, onde o usuário vai digitar o que desejar*/
 .principal__conteudo__textbox{
@@ -99,7 +91,7 @@ form{
     border: none;
     border-radius: 20px;   
     padding: 40px;
-    font-size: 32px; 
+    font-size: 2rem; 
     resize: none;  
    
 }
@@ -112,8 +104,12 @@ form{
     outline: none;
 }
 
+.principal__conteudo__form{
+    
+}
 .principal__conteudo__form__comentario{
     display: flex;
+    gap: 10px;
     margin: 20px 0 20px 0;
    
 }
@@ -152,10 +148,10 @@ form{
 .principal__historico{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     background-color: #FFF;
-    width: auto; 
-    height: 500px;    
+    width: 50%; 
+    height: 100vh;
     padding: 32px;
     gap: 32px;    
     border-radius: 20px;
@@ -168,7 +164,7 @@ form{
 }
 
 .principal__historico_titulo{
-    font-size: 24px;
+    font-size: 1.5rem;
     color: var(--gray-500);    
 }
 
@@ -181,12 +177,27 @@ form{
 }
 
 
+#botaoCopiar{
+    color: var(--dark-blue-300);    
+    border: 0.3px solid;
+    border-color: var(--dark-blue-300);
+}
+
+#meuInput{
+    font-size: 1.5rem;
+    color: var(--gray-400);
+    padding: 12px;
+}
+
 /*Rodapé*/
 footer{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    padding: 2%;  
     background-color: var(--dark-blue-300);
     color: var(--light-blue-100);
-    text-align: center;
-    padding: 2%;    
+      
 }
 
 
